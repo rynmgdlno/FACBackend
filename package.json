@@ -1,0 +1,19 @@
+{
+  "name": "facbackend",
+  "version": "1.0.0",
+  "description": "Email and Payments functionality for FAC Site.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rynmgdlno/FACBackend.git"
+  },
+  "author": "Ryan N Magdaleno",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rynmgdlno/FACBackend/issues"
+  },
+  "homepage": "https://github.com/rynmgdlno/FACBackend#readme"
+}
