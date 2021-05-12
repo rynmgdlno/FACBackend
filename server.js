@@ -1,13 +1,20 @@
+'use strict'
+
 import express from 'express'
 import cors from 'cors'
 
+// Constants
+const PORT = 42069
+const HOST = '0.0.0.0'
+
+// App
 const app = express()
 
 app.use(cors())
 
 app.get('/', function (req, res) {
   res.send('hello world')
-  console.log('Server is listening on port 69420')
 })
 
-app.listen(69420)
+app.listen(PORT, HOST)
+console.log(`Server is running on http://${HOST}:${PORT}`)
