@@ -3,15 +3,15 @@
 import nodemailer from 'nodemailer'
 
 async function main() {
-  let testAccount = await nodemailer.createTestAccount();
+  // let testAccount = await nodemailer.createTestAccount();
 
   let transporter = nodemailer.createTransport({
     host: "smtp.ethereal.email",
     port: 587,
     secure: false,
     auth: {
-      user: testAccount.user,
-      pass: testAccount.pass,
+      user: 'monserrat.morissette77@ehtereal.email',
+      pass: 'PJhyvQXCdpXUrc27K5',
     },
   })
 
