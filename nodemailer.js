@@ -16,8 +16,8 @@ async function main() {
   })
 
   let info = await transporter.sendMail({
-    from: '"Fred Foo" <foo@example.com>',
-    to: "bar@example.com",
+    from: '"Test Test" <test@example.com>',
+    to: "ryannmagdleno@icloud.com",
     subject: "Hello",
     text: "Hello world?",
     html: "<b>Hello world with HTML?</b>"
