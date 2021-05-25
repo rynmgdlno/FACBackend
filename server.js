@@ -18,6 +18,7 @@ app.listen(PORT, HOST)
 console.log(`Server is running on http://${HOST}:${PORT}`)
 
 // Routes 
+// Nodemailer
 
 app.post('/mail', (req, res) => {
   let name = req.body.name
@@ -61,4 +62,10 @@ app.post('/mail', (req, res) => {
       console.log(success, req.body)
     }
   })
+})
+
+// Stripe
+
+app.post('/stripe', (req, res) => {
+
 })
