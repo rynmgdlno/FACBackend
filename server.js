@@ -1,9 +1,10 @@
 'use strict'
 
-import express from 'express'
-import cors from 'cors'
-import nodemailer from 'nodemailer'
-import { auth } from './email-credentials.js'
+const express = require('express')
+const cors = require('cors')
+const nodemailer = require('nodemailer')
+const stripe = require('stripe');
+const auth = require('./email-credentials')
 
 const app = express()
 
@@ -13,9 +14,6 @@ const HOST = process.env.HOST || '0.0.0.0'
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
-
-app.listen(PORT, HOST)
-console.log(`Server is running on http://${HOST}:${PORT}`)
 
 // Routes 
 // Nodemailer
@@ -69,3 +67,5 @@ app.post('/mail', (req, res) => {
 app.post('/stripe', (req, res) => {
 
 })
+
+app.listen(PORT, HOST, () => console.log(`Server is running on http://${HOST}:${PORT}`))

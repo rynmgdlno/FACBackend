@@ -1,6 +1,5 @@
 {
   "name": "facbackend",
-  "type": "module",
   "version": "1.0.0",
   "description": "Email and Payments functionality for FAC Site.",
   "main": "server.js",
