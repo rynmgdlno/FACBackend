@@ -3,14 +3,12 @@
 import express from 'express'
 import cors from 'cors'
 import nodemailer from 'nodemailer'
-
-// import { mailer } from './nodemailer.js'
 import { auth } from './email-credentials.js'
+
+const app = express()
 
 const PORT = process.env.PORT || 5000
 const HOST = process.env.HOST || '0.0.0.0'
-
-const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -19,6 +17,7 @@ app.use(cors())
 app.listen(PORT, HOST)
 console.log(`Server is running on http://${HOST}:${PORT}`)
 
+// Routes 
 
 app.post('/mail', (req, res) => {
   let name = req.body.name
@@ -35,8 +34,6 @@ app.post('/mail', (req, res) => {
     }
   })
   
-  // Routes
-
   const mailParams = {
     from: name,
     to: recipient,
@@ -64,6 +61,4 @@ app.post('/mail', (req, res) => {
       console.log(success, req.body)
     }
   })
-
-  // mailer().catch(console.error)
 })
