@@ -3,8 +3,9 @@
 const express = require('express')
 const cors = require('cors')
 const nodemailer = require('nodemailer')
-const stripe = require('stripe');
-const auth = require('./email-credentials')
+const stripe = require('stripe')('pk_test_51IsCuEBBSrRv5J3Zd5DoRDLR13q6o7wPI9fqXgdLmaqDbIc38M4dLHeiI2QXZoX42RFg1QqfM9NRKojhX6KwtIOK0074JyLeRY');
+const uuid = require('uuid')
+const emailCredentials = require('./email-credentials')
 
 const app = express()
 
@@ -28,8 +29,8 @@ app.post('/mail', (req, res) => {
   let transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-      user: auth.user,
-      pass: auth.pass
+      user: emailCredentials.auth.user,
+      pass: emailCredentials.auth.pass
     }
   })
   
@@ -64,8 +65,26 @@ app.post('/mail', (req, res) => {
 
 // Stripe
 
-app.post('/stripe', (req, res) => {
+app.post('/transactions', (req, res) => {
+  const {product, token} = req.body
+  console.log("PRODUCT:", product)
+  console.log("PRICE:", product.price)
+  const idempotencyKey = uuid()
 
+  return stripe.customers.create({
+    email: token.email,
+    source: token.id
+  }).then(customer => {
+    stripe.charges.create({
+      amount: product.price * 100,
+      currency: 'usd',
+      customer: customer.id,
+      receipt_email: token.email,
+      description: product.name
+    }, {idempotencyKey})
+  })
+  .then(result => res.status(200).json(result))
+  .catch(err => console.log(err))
 })
 
 app.listen(PORT, HOST, () => console.log(`Server is running on http://${HOST}:${PORT}`))

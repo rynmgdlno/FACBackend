@@ -4,3 +4,4 @@ const auth =
   "pass": "cizraj-vogBot-2remji"
 }
 
+module.exports= {auth}
