@@ -71,4 +71,8 @@ app.post('/stripe', (req, res) => {
   stripeFunctions.charge(req, res)
 })
 
+app.post('/test', (req, res) => {
+  stripeFunctions.test(req, res)
+})
+
 app.listen(PORT, HOST, () => console.log(`Server is running on http://${HOST}:${PORT}`))

@@ -13,16 +13,26 @@ const charge =  async (req, res) => {
     });
 
     console.log(payment);
+    return res.status(200)
 
-    return res.status(200).json({
-      confirm: "abc123"
-    });
+    // return res.status(200).json({
+    //   confirm: "abc123"
+    // });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
     return res.status(400).json({
       message: error.message
     });
   }
 };
 
-module.exports = { charge }
+const test = async (req, res) => {
+  const {name, number} = req.body
+  try {
+    return res.status(400).json()
+  } catch (error) {
+    return error
+  }
+}
+
+module.exports = { charge, test }
