@@ -1,30 +1,30 @@
-// nodemailer example
+// // nodemailer example
 
-import nodemailer from 'nodemailer'
+// import nodemailer from 'nodemailer'
 
-async function main() {
-  // let testAccount = await nodemailer.createTestAccount();
+// async function main() {
+//   // let testAccount = await nodemailer.createTestAccount();
 
-  let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false,
-    auth: {
-      user: 'monserrat.morissette77@ehtereal.email',
-      pass: 'PJhyvQXCdpXUrc27K5',
-    },
-  })
+//   let transporter = nodemailer.createTransport({
+//     host: "smtp.ethereal.email",
+//     port: 587,
+//     secure: false,
+//     auth: {
+//       user: 'monserrat.morissette77@ehtereal.email',
+//       pass: 'PJhyvQXCdpXUrc27K5',
+//     },
+//   })
 
-  let info = await transporter.sendMail({
-    from: '"Test Test" <test@example.com>',
-    to: "ryannmagdleno@icloud.com",
-    subject: "Hello",
-    text: "Hello world?",
-    html: "<b>Hello world with HTML?</b>"
-  })
+//   let info = await transporter.sendMail({
+//     from: '"Test Test" <test@example.com>',
+//     to: "ryannmagdleno@icloud.com",
+//     subject: "Hello",
+//     text: "Hello world?",
+//     html: "<b>Hello world with HTML?</b>"
+//   })
 
-  console.log("message sent: %s", info.messageId)
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info))
-}
+//   console.log("message sent: %s", info.messageId)
+//   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info))
+// }
 
-main().catch(console.error)
+// main().catch(console.error)
