@@ -3,8 +3,8 @@
 const express = require('express')
 const cors = require('cors')
 const nodemailer = require('nodemailer')
-const stripe = require('stripe')('sk_test_51IsCuEBBSrRv5J3ZCa9gBzgkUssacOKJcpCUuirhRVK0ZG1IoCbZ5LaDgeIkKJg3OfohbrJVeyVPAGSItpEWHnMi00j3w0nGzC');
-const uuid = require('uuid')
+// const stripe = require('stripe')('sk_test_51IsCuEBBSrRv5J3ZCa9gBzgkUssacOKJcpCUuirhRVK0ZG1IoCbZ5LaDgeIkKJg3OfohbrJVeyVPAGSItpEWHnMi00j3w0nGzC');
+// const uuid = require('uuid')
 const emailCredentials = require('./email-credentials')
 const stripeFunctions = require('./stripe')
 
@@ -69,10 +69,7 @@ app.post('/mail', (req, res) => {
 
 app.post('/stripe', (req, res) => {
   stripeFunctions.charge(req, res)
-})
-
-app.post('/test', (req, res) => {
-  stripeFunctions.test(req, res)
+  // res.end(payment)
 })
 
 app.listen(PORT, HOST, () => console.log(`Server is running on http://${HOST}:${PORT}`))
