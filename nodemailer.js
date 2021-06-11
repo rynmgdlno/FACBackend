@@ -1,6 +1,11 @@
+require('dotenv').config()
+const email_user = process.env.EMAIL_USER
+const email_pass = process.env.EMAIL_PASS
 const nodemailer = require('nodemailer')
 
-const sendMail = (req, res, emailCredentials) => {
+console.log(email_user, email_pass)
+
+const sendMail = (req, res) => {
   let name = req.body.name
   let email = req.body.email
   let message = req.body.message
@@ -10,8 +15,8 @@ const sendMail = (req, res, emailCredentials) => {
   let transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-      user: emailCredentials.auth.user,
-      pass: emailCredentials.auth.pass
+      user: email_user,
+      pass: email_pass
     }
   })
 
