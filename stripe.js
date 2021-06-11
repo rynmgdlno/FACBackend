@@ -1,4 +1,6 @@
-const stripe = require('stripe')('sk_test_51IsCuEBBSrRv5J3ZCa9gBzgkUssacOKJcpCUuirhRVK0ZG1IoCbZ5LaDgeIkKJg3OfohbrJVeyVPAGSItpEWHnMi00j3w0nGzC');
+require('dotenv').config()
+const secret_key = process.env.SECRET_KEY
+const stripe = require('stripe')(secret_key);
 
 const charge =  async (req, res) => {
   const { id, amount, receipt_email, description } = req.body;
