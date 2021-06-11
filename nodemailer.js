@@ -3,8 +3,6 @@ const email_user = process.env.EMAIL_USER
 const email_pass = process.env.EMAIL_PASS
 const nodemailer = require('nodemailer')
 
-console.log(email_user, email_pass)
-
 const sendMail = (req, res) => {
   let name = req.body.name
   let email = req.body.email
@@ -36,7 +34,6 @@ const sendMail = (req, res) => {
       res.json({
         status: "success"
       })
-      console.log("Email Sent " + data.response)
     }
   })
 
