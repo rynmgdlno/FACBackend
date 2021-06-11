@@ -4,7 +4,6 @@ const express = require('express')
 const cors = require('cors')
 const nodemailer = require('nodemailer')
 
-const emailCredentials = require('./email-credentials')
 const email = require('./nodemailer')
 const stripeFunctions = require('./stripe')
 
@@ -22,7 +21,7 @@ app.use(cors())
 // Nodemailer
 
 app.post('/mail', (req, res) => {
-  email.sendMail(req, res, emailCredentials)
+  email.sendMail(req, res)
 })
 
 // Stripe
