@@ -11,12 +11,18 @@ const app = express()
 
 const PORT = process.env.PORT || 5000
 const HOST = process.env.HOST || '0.0.0.0'
-
+console.log(PORT, HOST)
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
 // Routes 
+// Testing
+
+app.get('/', (req, res) => {
+  res.send('Fremont Arts Council API')
+})
+
 // Nodemailer
 
 app.post('/mail', (req, res) => {
