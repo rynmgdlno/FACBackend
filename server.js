@@ -23,6 +23,10 @@ app.get('/', (req, res) => {
   res.send('Fremont Arts Council API')
 })
 
+app.get('/test', (req, res) => {
+  res.send('Fremont Arts Council API')
+})
+
 // Nodemailer
 
 app.post('/mail', (req, res) => {
