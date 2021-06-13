@@ -6,12 +6,11 @@ const cors = require('cors')
 const email = require('./nodemailer')
 const stripeFunctions = require('./stripe')
 
-
 const app = express()
 
 const PORT = process.env.PORT || 5000
 const HOST = process.env.HOST || '0.0.0.0'
-console.log(PORT, HOST)
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
