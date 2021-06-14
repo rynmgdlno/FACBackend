@@ -29,6 +29,8 @@ app.get('/test', (req, res) => {
 // Nodemailer
 
 app.post('/mail', (req, res) => {
+  console.log('server connections successful')
+  console.log(req, res)
   email.sendMail(req, res)
 })
 
