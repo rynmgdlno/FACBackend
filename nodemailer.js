@@ -1,17 +1,18 @@
 require('dotenv').config()
+const nodemailer = require('nodemailer')
+
 const email_user = process.env.EMAIL_USER
 const email_pass = process.env.EMAIL_PASS
-const nodemailer = require('nodemailer')
 
 
 const sendMail = (req, res) => {
-  console.log('send mail initiated')
+  console.log('send mail has been called')
+  console.log(email_user, email_pass)
   let name = req.body.name
   let email = req.body.email
   let message = req.body.message
   let subject = req.body.subject
   let recipient = req.body.recipient
-  console.log(name, email, message, subject, recipient)
 
   let transporter = nodemailer.createTransport({
     service: "Gmail",
@@ -38,7 +39,7 @@ const sendMail = (req, res) => {
       res.json({
         status: "success"
       })
-      console.log(res.json)
+      // console.log(res.json)
     }
   })
 
